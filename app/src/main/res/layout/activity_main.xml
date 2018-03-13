@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.seolhalee.mapdisplaytest.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:paddingBottom="16dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        tools:context=".MainActivity">
+
+        <!-- MapView -->
+
+        <com.esri.arcgisruntime.mapping.view.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.esri.arcgisruntime.mapping.view.MapView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="245dp"
+        android:layout_height="196dp"
+        android:layout_marginBottom="11dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginTop="10dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/request_updates"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+
+        <TextView
+            android:id="@+id/detected_activity_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/detected_activity_confidence"
+            android:text="detected activity"
+            android:textSize="24sp" />
+
+        <ProgressBar
+            android:id="@+id/detected_activity_confidence"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detected_activity_title"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/Location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/detected_activity_confidence"
+            android:layout_below="@+id/detected_activity_confidence"
+            android:layout_marginTop="12dp"
+            android:text="Location"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/lon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/speed"
+            android:layout_toEndOf="@+id/lonName" />
+
+        <TextView
+            android:id="@+id/speedName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/lonName"
+            android:layout_below="@+id/lonName"
+            android:text="Speed" />
+
+        <TextView
+            android:id="@+id/speed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lonName"
+            android:layout_alignBottom="@+id/lonName"
+            android:layout_toEndOf="@+id/lonName" />
+
+        <TextView
+            android:id="@+id/latName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/speedName"
+            android:layout_below="@+id/speedName"
+            android:text="Latitude" />
+
+        <TextView
+            android:id="@+id/lat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/lon"
+            android:layout_below="@+id/lon" />
+
+        <TextView
+            android:id="@+id/lonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/Location"
+            android:layout_below="@+id/Location"
+            android:text="Longitude" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/request_updates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="50dp"
+        android:text="RUN"
+        app:layout_constraintBottom_toTopOf="@+id/remove_updates"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/remove_updates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="31dp"
+        android:layout_marginEnd="16dp"
+        android:text="FINISH"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="61dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="9dp"
+        android:layout_marginStart="23dp"
+        android:onClick="recenterMapView"
+        app:layout_constraintBottom_toTopOf="@+id/request_updates"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:srcCompat="@drawable/arcgisruntime_location_display_default_symbol" />
+
+
+</android.support.constraint.ConstraintLayout>
